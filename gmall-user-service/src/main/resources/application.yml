@@ -1,20 +1,34 @@
 server:
-  port: 8080
-
+  port: 8070
 spring:
+  application:
+    name: gmall-user-service
   datasource:
     username: root
     password: root
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://188.131.254.195/gmall?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&useSSL=false&autoReconnect=true&failOverReadOnly=false
-
 mybatis:
-  type-aliases-package: com.tucker.gmall.user.bean
+  type-aliases-package: com.tucker.gmall
 mapper:
   identity: MYSQL
-
-pagehelper:
-  reasonable: true
-  support-methods-arguments: true
-  params: count=countSql
-  helper-dialect: mysql
+user:
+  service:
+    version: 1.0.0
+dubbo:
+  application:
+    id: gmall-user-service
+    name: gmall-user-service
+  scan:
+    base-packages: com.tucker.gmall
+  protocol:
+    id: dubbo
+    name: dubbo
+    port: 12345
+    status: server
+    serialization: kryo
+  registry:
+    id: zookepper
+    address: zookeeper://188.131.254.195:2181
+  provider:
+    loadbalance: roundrobin

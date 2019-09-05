@@ -1,0 +1,30 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: gmall-manage-web
+manage:
+  service:
+    version: 1.0.0
+dubbo:
+  consumer:
+    check: false
+    timeout: 600000
+  application:
+    id: gmall-manage-web
+    name: gmall-manage-web
+    scan:
+      base-packages: com.tucker.gmall
+  protocol:
+    id: dubbo
+    name: dubbo
+    port: 12346
+    serialization: kryo
+  registry:
+    id: zookepper
+    address: zookeeper://188.131.254.195:2181
+  provider:
+    loadbalance: roundrobin
+
+mapper:
+  identity: MYSQL

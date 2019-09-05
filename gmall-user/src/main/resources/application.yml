@@ -9,7 +9,7 @@ spring:
     url: jdbc:mysql://188.131.254.195/gmall?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&useSSL=false&autoReconnect=true&failOverReadOnly=false
 
 mybatis:
-  type-aliases-package: com.tucker.gmall.user.bean
+  type-aliases-package: com.tucker.gmall.user.com.tucker.gmall.bean
 mapper:
   identity: MYSQL
 
