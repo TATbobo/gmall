@@ -1,14 +1,37 @@
 package com.tucker.gmall.manageweb.controller;
 
-import jdk.nashorn.internal.ir.annotations.Reference;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
+import com.tucker.gmall.bean.PmsBaseAttrInfo;
+import com.tucker.gmall.bean.PmsBaseAttrValue;
+import com.tucker.gmall.service.AttrInfoService;
+import org.apache.dubbo.config.annotation.Reference;
+import org.springframework.web.bind.annotation.*;
 
-@Controller
+import java.util.List;
+
+@RestController
+@CrossOrigin
 public class AttrController {
 
-   /* @Reference
-    AttrService attrService;
 
-    @RequestMapping("")*/
+    @Reference(version = "${manage.service.version}")
+    AttrInfoService attrInfoService;
+
+    @RequestMapping(value = "attrInfoList")
+    public List<PmsBaseAttrInfo> getAttrInfo(@RequestParam("catalog3Id" ) String catalog3Id){
+        return attrInfoService.getAttrInfoByC3Id(catalog3Id);
+    }
+
+    @RequestMapping(value = "saveAttrInfo")
+    public String saveAttrInfo(@RequestBody PmsBaseAttrInfo pmsBaseAttrInfo){
+
+        attrInfoService.insertAttrInfo(pmsBaseAttrInfo);
+
+        return "success";
+    }
+
+    @RequestMapping(value = "getAttrValueList")
+    public List<PmsBaseAttrValue> getAttrValue(@RequestParam("attrId") String attrId){
+
+        return attrInfoService.getAttrValueById(attrId);
+    }
 }
