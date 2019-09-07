@@ -5,7 +5,6 @@ import com.tucker.gmall.bean.PmsBaseCatalog2;
 import com.tucker.gmall.bean.PmsBaseCatalog3;
 import com.tucker.gmall.service.CatalogService;
 import org.apache.dubbo.config.annotation.Reference;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

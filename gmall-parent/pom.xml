@@ -13,6 +13,8 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
+        <skipTests>true</skipTests>
+
 
         <fastjson.version>1.2.46</fastjson.version>
         <dubbo-starter.version>2.7.3</dubbo-starter.version>
@@ -160,4 +162,15 @@
 
         </dependencies>
     </dependencyManagement>
+
+
+        <build>
+            <plugins>
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                </plugin>
+            </plugins>
+        </build>
+
 </project>

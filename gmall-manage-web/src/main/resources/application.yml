@@ -10,11 +10,12 @@ dubbo:
   consumer:
     check: false
     timeout: 600000
+  scan:
+    base-packages: com.tucker.gmall
   application:
     id: gmall-manage-web
     name: gmall-manage-web
-    scan:
-      base-packages: com.tucker.gmall
+
   protocol:
     id: dubbo
     name: dubbo
@@ -28,3 +29,7 @@ dubbo:
 
 mapper:
   identity: MYSQL
+
+logging:
+  level:
+    com.tucker.gmall: info

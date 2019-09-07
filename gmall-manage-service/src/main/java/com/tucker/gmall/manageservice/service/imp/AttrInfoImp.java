@@ -34,8 +34,6 @@ public class AttrInfoImp implements AttrInfoService {
 
         List<PmsBaseAttrInfo> attrInfos = attrInfoMapper.select(attrInfo);
 
-        logger.info(String.valueOf(attrInfos));
-
         return attrInfos;
     }
 
