@@ -33,6 +33,12 @@ public class AttrInfoImp implements AttrInfoService {
         attrInfo.setCatalog3Id(catalog3Id);
 
         List<PmsBaseAttrInfo> attrInfos = attrInfoMapper.select(attrInfo);
+        for (PmsBaseAttrInfo baseAttrInfo : attrInfos) {
+            PmsBaseAttrValue attrValue = new PmsBaseAttrValue();
+            attrValue.setAttrId(baseAttrInfo.getId());
+            List<PmsBaseAttrValue> attrValues = attrValueMapper.select(attrValue);
+            baseAttrInfo.setAttrValueList(attrValues);
+        }
 
         return attrInfos;
     }

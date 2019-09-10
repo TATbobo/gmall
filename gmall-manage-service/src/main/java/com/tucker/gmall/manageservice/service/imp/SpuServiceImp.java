@@ -26,6 +26,9 @@ public class SpuServiceImp implements SpuService {
     @Autowired
     ImageMapper imageMapper;
 
+    @Autowired
+    SpuImageMapper spuImageMapper;
+
     @Override
     public List<PmsProductInfo> selectSpuByC3Id(String catalog3Id) {
 
@@ -46,19 +49,20 @@ public class SpuServiceImp implements SpuService {
         String productId = spuMapper.selectOne(pmsProductInfo).getId();
 
         List<PmsProductImage> pmsProductImages = pmsProductInfo.getSpuImageList();
-        if (pmsProductImages.isEmpty()){return;}
+        if (!pmsProductImages.isEmpty()){
         for (PmsProductImage pmsProductImage:pmsProductImages){
 
             pmsProductImage.setProductId(productId);
             imageMapper.insertSelective(pmsProductImage);
         }
+        }
 
         List<PmsProductSaleAttr> pmsProductSaleAttrs = pmsProductInfo.getSpuSaleAttrList();
-        if (pmsProductSaleAttrs.isEmpty()){return;}
+        if (!pmsProductSaleAttrs.isEmpty()){
         for (PmsProductSaleAttr pmsProductSaleAttr:pmsProductSaleAttrs){
 
             List<PmsProductSaleAttrValue> pmsProductSaleAttrValues =  pmsProductSaleAttr.getSpuSaleAttrValueList();
-            if(pmsProductSaleAttrValues.isEmpty()){
+            if(!pmsProductSaleAttrValues.isEmpty()){
                 for (PmsProductSaleAttrValue pmsProductSaleAttrValue:pmsProductSaleAttrValues){
                     pmsProductSaleAttrValue.setProductId(productId);
                     saleAttrValueMapper.insertSelective(pmsProductSaleAttrValue);
@@ -68,5 +72,33 @@ public class SpuServiceImp implements SpuService {
             pmsProductSaleAttr.setProductId(productId);
             saleAttrMapper.insertSelective(pmsProductSaleAttr);
         }
+        }
+    }
+
+    @Override
+    public List<PmsProductSaleAttr> selectSaleAttrById(String spuId) {
+
+        PmsProductSaleAttr saleAttr = new PmsProductSaleAttr();
+        saleAttr.setProductId(spuId);
+        List<PmsProductSaleAttr> saleAttrs = saleAttrMapper.select(saleAttr);
+        for (PmsProductSaleAttr saleAttr1 : saleAttrs) {
+            PmsProductSaleAttrValue saleAttrValue = new PmsProductSaleAttrValue();
+            saleAttrValue.setProductId(spuId);
+            saleAttrValue.setSaleAttrId(saleAttr1.getSaleAttrId());
+            List<PmsProductSaleAttrValue> saleAttrValues1 = saleAttrValueMapper.select(saleAttrValue);
+
+            saleAttr1.setSpuSaleAttrValueList(saleAttrValues1);
+        }
+        return saleAttrs;
+    }
+
+    @Override
+    public List<PmsProductImage> selectSpuImage(String spuId) {
+
+        PmsProductImage pmsProductImage = new PmsProductImage();
+        pmsProductImage.setProductId(spuId);
+
+        List<PmsProductImage> spuImages = spuImageMapper.select(pmsProductImage);
+        return spuImages;
     }
 }
