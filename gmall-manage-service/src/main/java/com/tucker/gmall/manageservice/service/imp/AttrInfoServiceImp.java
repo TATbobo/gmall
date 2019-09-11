@@ -15,7 +15,7 @@ import tk.mybatis.mapper.entity.Example;
 import java.util.List;
 
 @Service(version = "${manage.service.version}")
-public class AttrInfoImp implements AttrInfoService {
+public class AttrInfoServiceImp implements AttrInfoService {
 
 
     Logger logger = LoggerFactory.getLogger(AttrInfoService.class);

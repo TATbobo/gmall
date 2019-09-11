@@ -9,38 +9,27 @@
     </parent>
 
     <groupId>com.tucker.gmall</groupId>
-    <artifactId>gmall-user-web</artifactId>
+    <artifactId>gmall-item-web</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>gmall-user-web</name>
+    <name>gmall-item-web</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
         <java.version>1.8</java.version>
-        <skipTests>true</skipTests>
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>com.tucker.gmall</groupId>
+            <artifactId>gmall-api</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
 
         <dependency>
             <groupId>com.tucker.gmall</groupId>
             <artifactId>gmall-web-util</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
-
-        <dependency>
-            <groupId>com.tucker.gmall</groupId>
-            <artifactId>gmall-api</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
     </dependencies>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </build>
 
 </project>

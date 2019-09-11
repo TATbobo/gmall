@@ -30,5 +30,6 @@ dubbo:
   registry:
     id: zookepper
     address: zookeeper://188.131.254.195:2181
+    timeout: 600000
   provider:
     loadbalance: roundrobin

@@ -3,6 +3,7 @@ package com.tucker.gmall.bean;
 
 import com.tucker.gmall.bean.PmsSkuAttrValue;
 import com.tucker.gmall.bean.PmsSkuImage;
+import lombok.Data;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -13,6 +14,7 @@ import java.util.List;
  * @param
  * @return
  */
+@Data
 public class PmsSkuInfo implements Serializable {
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,7 +23,7 @@ public class PmsSkuInfo implements Serializable {
     String id;
 
     @Column
-    String productId;
+    String spuId;
 
     @Column
     BigDecimal price;
@@ -42,100 +44,12 @@ public class PmsSkuInfo implements Serializable {
     String skuDefaultImg;
 
     @Transient
-    List<PmsSkuImage> pmsSkuImageList;
+    List<PmsSkuImage> SkuImageList;
 
     @Transient
-    List<PmsSkuAttrValue> pmsSkuAttrValueList;
+    List<PmsSkuAttrValue> SkuAttrValueList;
 
     @Transient
-    List<PmsSkuSaleAttrValue> pmsSkuSaleAttrValueList;
+    List<PmsSkuSaleAttrValue> SkuSaleAttrValueList;
 
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public BigDecimal getPrice() {
-        return price;
-    }
-
-    public void setPrice(BigDecimal price) {
-        this.price = price;
-    }
-
-    public String getSkuName() {
-        return skuName;
-    }
-
-    public void setSkuName(String skuName) {
-        this.skuName = skuName;
-    }
-
-    public BigDecimal getWeight() {
-        return weight;
-    }
-
-    public void setWeight(BigDecimal weight) {
-        this.weight = weight;
-    }
-
-    public String getSkuDesc() {
-        return skuDesc;
-    }
-
-    public void setSkuDesc(String skuDesc) {
-        this.skuDesc = skuDesc;
-    }
-
-    public String getCatalog3Id() {
-        return catalog3Id;
-    }
-
-    public void setCatalog3Id(String catalog3Id) {
-        this.catalog3Id = catalog3Id;
-    }
-
-    public String getSkuDefaultImg() {
-        return skuDefaultImg;
-    }
-
-    public void setSkuDefaultImg(String skuDefaultImg) {
-        this.skuDefaultImg = skuDefaultImg;
-    }
-
-    public String getProductId() {
-        return productId;
-    }
-
-    public void setProductId(String productId) {
-        this.productId = productId;
-    }
-
-    public List<PmsSkuImage> getPmsSkuImageList() {
-        return pmsSkuImageList;
-    }
-
-    public void setPmsSkuImageList(List<PmsSkuImage> pmsSkuImageList) {
-        this.pmsSkuImageList = pmsSkuImageList;
-    }
-
-    public List<PmsSkuAttrValue> getPmsSkuAttrValueList() {
-        return pmsSkuAttrValueList;
-    }
-
-    public void setPmsSkuAttrValueList(List<PmsSkuAttrValue> pmsSkuAttrValueList) {
-        this.pmsSkuAttrValueList = pmsSkuAttrValueList;
-    }
-
-    public List<PmsSkuSaleAttrValue> getPmsSkuSaleAttrValueList() {
-        return pmsSkuSaleAttrValueList;
-    }
-
-    public void setPmsSkuSaleAttrValueList(List<PmsSkuSaleAttrValue> pmsSkuSaleAttrValueList) {
-        this.pmsSkuSaleAttrValueList = pmsSkuSaleAttrValueList;
-    }
 }

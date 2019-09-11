@@ -15,7 +15,7 @@ public class PmsUploadUtil {
 
     private static String tracker = PmsUploadUtil.class.getResource("/tracker.conf").getPath();
 
-    private static String baseUrl = "188.131.254.195:8888";
+    private static String BASE_URL = "188.131.254.195:8888";
 
     public static String fileUpload(MultipartFile multipartFile){
 
@@ -48,8 +48,9 @@ public class PmsUploadUtil {
             e.printStackTrace();
         }
         String imageUrl = "";
+        imageUrl+=BASE_URL;
         for (int i = 0; i < upload_file.length; i++) {
-            imageUrl = baseUrl+"/"+upload_file[i];
+            imageUrl = imageUrl+"/"+upload_file[i];
         }
         logger.info("url =="+imageUrl);
         return imageUrl;
