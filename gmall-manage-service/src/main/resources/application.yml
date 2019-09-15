@@ -31,5 +31,10 @@ dubbo:
     id: zookepper
     address: zookeeper://188.131.254.195:2181
     timeout: 600000
+    check: false
   provider:
     loadbalance: roundrobin
+  config-center:
+    address: zookeeper://188.131.254.195:2181
+  metadata-report:
+    address: zookeeper://188.131.254.195:2181

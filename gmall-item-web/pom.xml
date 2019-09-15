@@ -7,8 +7,6 @@
         <artifactId>gmall-parent</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-
-    <groupId>com.tucker.gmall</groupId>
     <artifactId>gmall-item-web</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>gmall-item-web</name>
@@ -31,5 +29,14 @@
             <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>

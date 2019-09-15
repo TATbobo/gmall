@@ -1,5 +1,7 @@
 package com.tucker.gmall.bean;
 
+import lombok.Data;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
@@ -8,6 +10,7 @@ import java.util.List;
  * @param
  * @return
  */
+@Data
 public class PmsBaseCatalog2 implements Serializable {
     @Id
     @Column

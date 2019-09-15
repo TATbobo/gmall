@@ -155,4 +155,42 @@
         </dependencies>
     </dependencyManagement>
 
+    <build>
+        <plugins>
+
+            <plugin>
+                <groupId>org.zeroturnaround</groupId>
+                <artifactId>jrebel-maven-plugin</artifactId>
+                <version>1.1.8</version>
+                <configuration>
+                    <!-- 将配置的资源目录也添加到rebel.xml中 -->
+                    <addResourcesDirToRebelXml>true</addResourcesDirToRebelXml>
+                    <!--如果设置为true，则生成的rebel.xml将在构建期间在控制台中打印出来，可以立即看到生成的内容。默认为false-->
+                    <showGenerated>true</showGenerated>
+                    <!-- 每次都生成新的rebel.xml。如果为false，只在rebel.xml和pom.xml的时间戳不相同的时候，重新生成rebel.xml。默认为false -->
+                    <!--<alwaysGenerate>true</alwaysGenerate>-->
+                    <!-- 在单个项目中处理多个模块时，您可以选择跳过为特定模块生成rebel.xml。 只需将以下内容添加到他们的pom.xml中即可 -->
+                    <!--<skip>true</skip>-->
+                    <!-- 如果工程师自己自定义的package，则需要主动设置为 jar 或者 war -->
+                    <!--<packaging>war</packaging>-->
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>generate-rebel-xml</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <fork>true</fork> <!-- 如果没有该配置，devtools不会生效 -->
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>

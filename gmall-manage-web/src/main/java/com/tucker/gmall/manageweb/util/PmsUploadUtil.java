@@ -15,7 +15,7 @@ public class PmsUploadUtil {
 
     private static String tracker = PmsUploadUtil.class.getResource("/tracker.conf").getPath();
 
-    private static String BASE_URL = "188.131.254.195:8888";
+    private static String BASE_URL = "http://188.131.254.195:8888";
 
     public static String fileUpload(MultipartFile multipartFile){
 

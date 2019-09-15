@@ -1,9 +1,6 @@
 package com.tucker.gmall.service;
 
-import com.tucker.gmall.bean.PmsBaseSaleAttr;
-import com.tucker.gmall.bean.PmsProductImage;
-import com.tucker.gmall.bean.PmsProductInfo;
-import com.tucker.gmall.bean.PmsProductSaleAttr;
+import com.tucker.gmall.bean.*;
 
 import java.util.List;
 
@@ -17,4 +14,5 @@ public interface SpuService {
     List<PmsProductSaleAttr> selectSaleAttrById(String spuId);
 
     List<PmsProductImage> selectSpuImage(String spuId);
+
 }

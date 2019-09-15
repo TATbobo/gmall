@@ -29,6 +29,7 @@ public class SpuServiceImp implements SpuService {
     @Autowired
     SpuImageMapper spuImageMapper;
 
+
     @Override
     public List<PmsProductInfo> selectSpuByC3Id(String catalog3Id) {
 
@@ -101,4 +102,5 @@ public class SpuServiceImp implements SpuService {
         List<PmsProductImage> spuImages = spuImageMapper.select(pmsProductImage);
         return spuImages;
     }
+
 }

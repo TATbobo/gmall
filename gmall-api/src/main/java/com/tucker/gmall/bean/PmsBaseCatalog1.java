@@ -1,5 +1,7 @@
 package com.tucker.gmall.bean;
 
+import lombok.Data;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
@@ -8,6 +10,7 @@ import java.util.List;
  * @param
  * @return
  */
+@Data
 public class PmsBaseCatalog1 implements Serializable {
     @Id
     @Column
@@ -19,20 +22,5 @@ public class PmsBaseCatalog1 implements Serializable {
     @Transient
     private List<PmsBaseCatalog2> catalog2s;
 
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 }
 

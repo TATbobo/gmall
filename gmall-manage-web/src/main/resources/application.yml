@@ -23,7 +23,7 @@ dubbo:
     serialization: kryo
   registry:
     id: zookepper
-    address: zookeeper://188.131.254.195:2181
+    address: zookeeper://188.131.254.195:2183
     timeout: 600000
   provider:
     loadbalance: roundrobin

@@ -9,6 +9,15 @@ spring:
     encoding: UTF-8
     servlet:
       content-type: text/html
+    cache: false
+    #松校验
+    mode: HTML
+  devtools:
+    livereload:
+      enabled: true
+    remote:
+      restart:
+        enabled: true
 manage:
   service:
     version: 1.0.0
@@ -21,7 +30,6 @@ dubbo:
   application:
     id: gmall-item-web
     name: gmall-item-web
-
   protocol:
     id: dubbo
     name: dubbo
@@ -29,14 +37,13 @@ dubbo:
     serialization: kryo
   registry:
     id: zookepper
-    address: zookeeper://188.131.254.195:2181
+    address: zookeeper://188.131.254.195:2183
     timeout: 600000
-  provider:
-    loadbalance: roundrobin
+    check: false
 
 mapper:
   identity: MYSQL
 
 logging:
   level:
-    com.tucker.gmall: info
+    com.tucker.gmall: debug

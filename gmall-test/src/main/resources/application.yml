@@ -1,0 +1,49 @@
+server:
+  port: 8088
+spring:
+  application:
+    name: gmall-test-1
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    encoding: UTF-8
+    servlet:
+      content-type: text/html
+    cache: false
+    #松校验
+    mode: HTML
+  devtools:
+    livereload:
+      enabled: true
+    remote:
+      restart:
+        enabled: true
+manage:
+  service:
+    version: 1.0.0
+dubbo:
+  consumer:
+    check: false
+    timeout: 600000
+  scan:
+    base-packages: com.tucker.gmall
+  application:
+    id: gmall-test-1
+    name: gmall-test-1
+  protocol:
+    id: dubbo
+    name: dubbo
+    port: 12346
+    serialization: kryo
+  registry:
+    id: zookepper
+    address: zookeeper://188.131.254.195:2183
+    timeout: 600000
+    check: false
+
+mapper:
+  identity: MYSQL
+
+logging:
+  level:
+    com.tucker.gmall: debug
