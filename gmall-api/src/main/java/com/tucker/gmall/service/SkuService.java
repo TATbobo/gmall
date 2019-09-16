@@ -14,4 +14,6 @@ public interface SkuService {
     List<PmsSkuImage> selectImageBySkuId(String id);
 
     List<PmsSkuSaleAttrValue> selectAttrValueBySkuId(String skuId);
+
+    List<PmsSkuInfo> selectAttrValueBySpuId(String spuId);
 }

@@ -15,4 +15,5 @@ public interface SpuService {
 
     List<PmsProductImage> selectSpuImage(String spuId);
 
+    List<PmsProductSaleAttr> spuSaleAttrListCheckBySku(String spuId, String skuId);
 }

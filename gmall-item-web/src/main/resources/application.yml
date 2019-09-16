@@ -15,9 +15,8 @@ spring:
   devtools:
     livereload:
       enabled: true
-    remote:
-      restart:
-        enabled: true
+    restart:
+      enabled: true
 manage:
   service:
     version: 1.0.0

@@ -103,4 +103,10 @@ public class SpuServiceImp implements SpuService {
         return spuImages;
     }
 
+    @Override
+    public List<PmsProductSaleAttr> spuSaleAttrListCheckBySku(String spuId, String skuId) {
+        return saleAttrValueMapper.spuSaleAttrListCheckBySku(spuId,skuId);
+    }
+
+
 }

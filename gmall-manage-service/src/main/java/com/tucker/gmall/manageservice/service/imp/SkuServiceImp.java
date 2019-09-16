@@ -82,4 +82,9 @@ public class SkuServiceImp implements SkuService {
 
         return pmsSkuSaleAttrValues;
     }
+
+    @Override
+    public List<PmsSkuInfo> selectAttrValueBySpuId(String spuId) {
+        return skuInfoMapper.selectAttrValueBySpuId(spuId);
+    }
 }
