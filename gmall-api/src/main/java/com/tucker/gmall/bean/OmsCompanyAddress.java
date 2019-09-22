@@ -7,6 +7,7 @@ import java.io.Serializable;
 @Data
 public class OmsCompanyAddress implements Serializable {
 
+    private static final long serialVersionUID = 4614820001688085620L;
     @Id
     private String id;
     private String addressName;

@@ -1,8 +1,5 @@
 package com.tucker.gmall.bean;
 
-
-import com.tucker.gmall.bean.PmsSkuAttrValue;
-import com.tucker.gmall.bean.PmsSkuImage;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -17,6 +14,7 @@ import java.util.List;
 @Data
 public class PmsSkuInfo implements Serializable {
 
+    private static final long serialVersionUID = -1881736832708787736L;
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column

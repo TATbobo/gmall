@@ -8,6 +8,7 @@ import java.io.Serializable;
 @Data
 public class PmsBrand implements Serializable {
 
+    private static final long serialVersionUID = 8614052095701882949L;
     @Id
     private String id;
     private String name;

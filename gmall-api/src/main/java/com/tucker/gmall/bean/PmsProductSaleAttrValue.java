@@ -9,6 +9,7 @@ import java.io.Serializable;
 
 @Data
 public class PmsProductSaleAttrValue implements Serializable {
+    private static final long serialVersionUID = -2821521822051327358L;
     @Id
     @Column
     String id;

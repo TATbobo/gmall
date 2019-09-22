@@ -13,6 +13,7 @@ import java.io.Serializable;
  */
 @Data
 public class PmsBaseAttrValue implements Serializable {
+    private static final long serialVersionUID = -2036832668180636232L;
     @Id
     @Column
     private String id;

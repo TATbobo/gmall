@@ -13,6 +13,7 @@ import java.util.List;
 @Data
 public class PmsProductInfo implements Serializable {
 
+    private static final long serialVersionUID = 4243568353677532944L;
     @Column
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

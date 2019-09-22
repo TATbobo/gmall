@@ -12,6 +12,7 @@ import java.io.Serializable;
 @Data
 public class PmsProductImage implements Serializable {
 
+    private static final long serialVersionUID = -6156085977125685574L;
     @Column
     @Id
     private String id;

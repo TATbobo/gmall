@@ -1,10 +1,10 @@
-package com.tucker.gmall.manageservice;
+package com.tucker.gmall;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import tk.mybatis.spring.annotation.MapperScan;
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = "com.tucker.gmall")
 @MapperScan(basePackages = "com.tucker.gmall.manageservice.mapper")
 public class GmallManageServiceApplication {
 

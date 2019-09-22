@@ -7,6 +7,7 @@ import java.math.BigDecimal;
 @Data
 public class OmsOrderItem implements Serializable {
 
+    private static final long serialVersionUID = 3004606959653278531L;
     private String id;
     private String orderId;
     private String orderSn;

@@ -9,6 +9,7 @@ import java.util.Date;
 @Data
 public class OmsCartItem implements Serializable {
 
+    private static final long serialVersionUID = -95943214047801980L;
     @Id
     private String id;
     private String productId;

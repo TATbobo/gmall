@@ -13,6 +13,7 @@ import java.io.Serializable;
 @Data
 public class PmsSkuImage implements Serializable {
 
+    private static final long serialVersionUID = -6806836098635849158L;
     @Id
     @Column
     String id;

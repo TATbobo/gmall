@@ -9,6 +9,7 @@ import java.io.Serializable;
 @Data
 public class PmsSkuAttrValue implements Serializable {
 
+    private static final long serialVersionUID = 5511675162308681098L;
     @Id
     @Column
     String id;

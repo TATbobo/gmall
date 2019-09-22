@@ -14,6 +14,7 @@ import java.util.List;
 @Data
 public class PmsBaseAttrInfo implements Serializable {
 
+    private static final long serialVersionUID = -5322078615050761452L;
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column

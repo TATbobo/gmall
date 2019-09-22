@@ -17,6 +17,7 @@ spring:
       enabled: true
     restart:
       enabled: true
+
 manage:
   service:
     version: 1.0.0
@@ -36,7 +37,7 @@ dubbo:
     serialization: kryo
   registry:
     id: zookepper
-    address: zookeeper://188.131.254.195:2183
+    address: zookeeper://188.131.254.195:2183?backup=188.131.254.195:2181,188.131.254.195:2182
     timeout: 600000
     check: false
 

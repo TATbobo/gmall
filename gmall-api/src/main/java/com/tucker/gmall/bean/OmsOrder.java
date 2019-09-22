@@ -10,6 +10,7 @@ import java.util.Date;
 public class OmsOrder implements Serializable {
 
 
+    private static final long serialVersionUID = -7024780062639072275L;
     @Id
     private String id;
     private String memberId;

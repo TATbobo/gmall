@@ -8,6 +8,7 @@ import java.io.Serializable;
 @Data
 public class UmsMemberReceiveAddress implements Serializable {
 
+    private static final long serialVersionUID = -8315507582088763186L;
     @Id
     private String id;
     private String memberId;

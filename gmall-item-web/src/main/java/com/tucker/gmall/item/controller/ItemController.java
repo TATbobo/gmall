@@ -2,6 +2,7 @@ package com.tucker.gmall.item.controller;
 
 import com.alibaba.fastjson.JSON;
 import com.tucker.gmall.bean.*;
+import com.tucker.gmall.service.RedisService;
 import com.tucker.gmall.service.SkuService;
 import com.tucker.gmall.service.SpuService;
 import org.apache.dubbo.config.annotation.Reference;
@@ -25,8 +26,12 @@ public class ItemController {
     @Reference(version = "${manage.service.version}")
     SpuService spuService;
 
+    @Reference(version = "${manage.service.version}")
+    RedisService redisService;
+
     @RequestMapping(value = "{skuId}.html")
     public String getItem(@PathVariable String skuId, ModelMap map){
+
         PmsSkuInfo pmsSkuInfo = skuService.selectSkuById(skuId);
         String spuId = pmsSkuInfo.getSpuId();
 

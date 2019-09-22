@@ -9,6 +9,7 @@ import java.util.Date;
 @Data
 public class UmsMember implements Serializable {
 
+    private static final long serialVersionUID = 7152340199173975629L;
     @Id
     private String id;
     private String memberLevelId;

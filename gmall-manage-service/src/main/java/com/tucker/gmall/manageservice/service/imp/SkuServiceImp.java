@@ -3,9 +3,13 @@ package com.tucker.gmall.manageservice.service.imp;
 
 import com.tucker.gmall.bean.*;
 import com.tucker.gmall.manageservice.mapper.*;
+import com.tucker.gmall.manageservice.utils.RedisCache;
+import com.tucker.gmall.service.RedisService;
 import com.tucker.gmall.service.SkuService;
+import org.apache.dubbo.config.annotation.Reference;
 import org.apache.dubbo.config.annotation.Service;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.StringUtils;
 
 import java.util.List;
 
@@ -23,6 +27,9 @@ public class SkuServiceImp implements SkuService {
 
     @Autowired
     SkuImageMapper skuImageMapper;
+
+    @Reference(version = "${manage.service.version}")
+    RedisService redisService;
 
     @Override
     public void insertSkuInfo(PmsSkuInfo skuInfo) {
@@ -53,15 +60,28 @@ public class SkuServiceImp implements SkuService {
     @Override
     public PmsSkuInfo selectSkuById(String skuId) {
 
+        String key  = "skuId:" + skuId+":info";
+
+        if(!StringUtils.isEmpty(key)&&!StringUtils.isEmpty(redisService.get(key))){
+            return (PmsSkuInfo) redisService.get(key);
+        }
+
         PmsSkuInfo pmsSkuInfo = new PmsSkuInfo();
         pmsSkuInfo.setId(skuId);
         PmsSkuInfo skuInfo = skuInfoMapper.selectOne(pmsSkuInfo);
 
-        PmsSkuImage pmsSkuImage = new PmsSkuImage();
-        pmsSkuImage.setSkuId(skuId);
-        List<PmsSkuImage> pmsSkuImages = skuImageMapper.select(pmsSkuImage);
+        if(!StringUtils.isEmpty(skuInfo)) {
+            PmsSkuImage pmsSkuImage = new PmsSkuImage();
+            pmsSkuImage.setSkuId(skuId);
+            List<PmsSkuImage> pmsSkuImages = skuImageMapper.select(pmsSkuImage);
 
-        skuInfo.setSkuImageList(pmsSkuImages);
+            skuInfo.setSkuImageList(pmsSkuImages);
+
+            redisService.set(key, skuInfo);
+        }
+        else{
+            redisService.set(key,null,60*3);
+        }
         return skuInfo;
     }
 

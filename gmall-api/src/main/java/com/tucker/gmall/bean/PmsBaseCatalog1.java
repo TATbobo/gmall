@@ -12,6 +12,7 @@ import java.util.List;
  */
 @Data
 public class PmsBaseCatalog1 implements Serializable {
+    private static final long serialVersionUID = -1735417747380935616L;
     @Id
     @Column
     @GeneratedValue(strategy = GenerationType.IDENTITY)
